@@ -1,0 +1,122 @@
+Servers:
+- Stripped Down to the bare min (no second psu, no mgt interface)
+- Preinstalled windows (with Apple123 default password)
+- LOUD! pushing 70db at full fan speed
+- Memory installed in the wrong slots
+- RAID 1 for SAS drives included
+
+Host OS:
+- Starightforward Ubuntu install
+
+OpenStack Package Instal from Tarball:
+ - Tarball issues:
+  - Binary deps for tarballs
+    - advertise bindep.txt and how to use it
+    - not all projects use bindep for everything
+  - python packaging etc files, need to copy etc/ from tarball into created /etc/$service dir
+    - always use upper-constraints!!!
+  - no service files (systemd unit files) had to write my own
+
+Keystone:
+  - Install docs:
+    - create 3 endpoints for each service (not really needed)
+    - recommends mod_wsgi but keystone docs say uwsgi (probably because of packaging)
+
+  - Fernet expects service user (need to create it)
+  - apache2 setup not specified anywhere in install docs (ubuntu does it for you)
+  - google keystone in apache on how to do it yields:
+    https://docs.openstack.org/developer/keystone/apache-httpd.html
+
+  - requirements conflict
+    - solved with manual resolution, copying oslo.policy requirement for requests
+      and manually installing it, fixed with reordering requirements file: oslo.policy before
+      keystoneclient (pip no dep solver)
+  - warning with default paste.ini, docs explain it but it says removed in O and I installed O... (also it's never used)
+
+Glance:
+  - Store is misconfigured error:
+    - Make sure store dir exists (requires restart to take)
+
+Nova Controller:
+  - Conf docs say `use_neturon` defaults to false but it doesn't. Install guide
+    explicitly sets it
+  - firewall driver confusing from sample config
+  - Make sure you create lock dir and it has proper permissions
+  - 'nova' databse migrations is slow took ~3mins
+  - Don't forget the placement API. A wsgi script, not a standalone service
+    - Docs for deploy of placement aren't straightforward enough, need to google
+      how to deploy mod_wsgi script. Sample configs would be useful like what
+      keystone does. I used keystone's docs and samples as a reference.
+  - Permission error on keys dist-packages
+    -set state_path and keys_path per:
+       https://bugs.launchpad.net/openstack-manuals/+bug/1457423
+  - sudoers file for rootwrap:
+    https://bugs.launchpad.net/nova/+bug/1421597
+  - version conflict because of pip fun
+  - novnc
+    - ubuntu package is built improperly and depends on nova
+    - didn't run novnc for now
+
+Nova Compute:
+  - need to specify nova compute driver
+  - install libvirt python bindings
+  - libvirt permission issue
+    - add service user to libvirtd group
+  - placement api not responding
+    - make sure you type endpoints in correctly (compute != altocumulus01)
+
+Neutron:
+  - Linux Bridge Provider Networks
+  - Too many config files, no idea what's going on (just blindly copying and pasting)
+     - I had to look at packages to figure out how this worked there
+  - rootwrap and sudo is a mess
+    - need 2 commands in sudoers file
+    - need to set rootwrap commands in config (not in docs)
+      https://bugs.launchpad.net/neutron/+bug/1182616
+    - state dir
+    - lockpath linuxbridge agent
+    - install conntrack
+  - Failure mode for missing execs is sooo bad:
+    - http://paste.openstack.org/show/604877/ <- Missing ipset
+    - https://bugs.launchpad.net/neutron/+bug/1677742
+  - https://launchpad.net/bugs/1677728
+  - https://bugs.launchpad.net/neutron/+bug/1677746
+  - https://bugs.launchpad.net/neutron/+bug/1677752
+
+Nova Compute (at instance launch time)
+  - libvirt/nova-compute unable to open image backing file in instances dir
+    - apparmor (do not install the virtualization group in the ubuntu installer)
+
+
+Booting guests
+ - First guest boot no connectivity
+   - Checking network with tcpdump show vm interface on bridge seeing arp
+     requests for ip owner, guest doesn't respond though
+   - Images are blank
+     - Uploaded glance image was blank, but nothing failed
+       - tcpdump showed all the bits but glance didn't see anything (inserted
+         debug statements into glance code)
+       - it was a requirements conflict reinstalling deps with upper constraints
+         fixed it
+   - Using an ubuntu guest works. Cloud init wasn't picking up static ip setting
+     so it doesn't respond to arp.
+     - dhcp to physical network blocked by security groups (I think)
+
+
+compute node setup process:
+  - add provider interface config
+  - disable apparmor
+  - reboot
+  - download tarballs
+  - create system users
+  - add nova user to libvirt group
+  - install all binaries (libvirt, qemu, ipset, mkisofs, libssl-dev, pip)
+  - make service dirs /etc/ /var/lib
+  - copy etc dirs from tarballs to /etc
+  - pip install code with upper-constraints
+  - write config files
+  - set permissions on /etc and /var/lib
+  - create sudoers files
+  - create systemd unit files
+  - start services
+  - run nova discover_hosts

@@ -1,0 +1,53 @@
+2017-03-29 15:27:01.478 26833 ERROR keystone Traceback (most recent call last):
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/bin/keystone-wsgi-admin", line 51, in <module>
+2017-03-29 15:27:01.478 26833 ERROR keystone     application = initialize_admin_application()
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 132, in initialize_admin_application
+2017-03-29 15:27:01.478 26833 ERROR keystone     config_files=_get_config_files())
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 69, in initialize_application
+2017-03-29 15:27:01.478 26833 ERROR keystone     startup_application_fn=loadapp)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/common.py", line 50, in setup_backends
+2017-03-29 15:27:01.478 26833 ERROR keystone     res = startup_application_fn()
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 66, in loadapp
+2017-03-29 15:27:01.478 26833 ERROR keystone     'config:%s' % find_paste_config(), name)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/version/service.py", line 53, in loadapp
+2017-03-29 15:27:01.478 26833 ERROR keystone     controllers.latest_app = deploy.loadapp(conf, name=name)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 247, in loadapp
+2017-03-29 15:27:01.478 26833 ERROR keystone     return loadobj(APP, uri, name=name, **kw)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 272, in loadobj
+2017-03-29 15:27:01.478 26833 ERROR keystone     return context.create()
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 710, in create
+2017-03-29 15:27:01.478 26833 ERROR keystone     return self.object_type.invoke(self)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 144, in invoke
+2017-03-29 15:27:01.478 26833 ERROR keystone     **context.local_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/util.py", line 55, in fix_call
+2017-03-29 15:27:01.478 26833 ERROR keystone     val = callable(*args, **kw)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/urlmap.py", line 31, in urlmap_factory
+2017-03-29 15:27:01.478 26833 ERROR keystone     app = loader.get_app(app_name, global_conf=global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 350, in get_app
+2017-03-29 15:27:01.478 26833 ERROR keystone     name=name, global_conf=global_conf).create()
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 362, in app_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     APP, name=name, global_conf=global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 450, in get_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     global_additions=global_additions)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 559, in _pipeline_app_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     APP, pipeline[-1], global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 454, in get_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     section)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 476, in _context_from_use
+2017-03-29 15:27:01.478 26833 ERROR keystone     object_type, name=use, global_conf=global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 406, in get_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     global_conf=global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 296, in loadcontext
+2017-03-29 15:27:01.478 26833 ERROR keystone     global_conf=global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 328, in _loadegg
+2017-03-29 15:27:01.478 26833 ERROR keystone     return loader.get_context(object_type, name, global_conf)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 620, in get_context
+2017-03-29 15:27:01.478 26833 ERROR keystone     object_type, name=name)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 640, in find_egg_entry_point
+2017-03-29 15:27:01.478 26833 ERROR keystone     pkg_resources.require(self.spec)
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 943, in require
+2017-03-29 15:27:01.478 26833 ERROR keystone     needed = self.resolve(parse_requirements(requirements))
+2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 834, in resolve
+2017-03-29 15:27:01.478 26833 ERROR keystone     raise VersionConflict(dist, req).with_context(dependent_req)
+2017-03-29 15:27:01.478 26833 ERROR keystone ContextualVersionConflict: (requests 2.13.0 (/usr/local/lib/python2.7/dist-packages), Requirement.parse('requests!=2.12.2,!=2.13.0,>=2.10.0'), set(['oslo.policy']))
+2017-03-29 15:27:01.478 26833 ERROR keystone 

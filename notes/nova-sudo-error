@@ -1,0 +1,38 @@
+Mar 29 18:29:47 altocumulus01 nova-api[905]: Command: sudo nova-rootwrap /etc/nova/rootwrap.conf iptables-save -c
+Mar 29 18:29:47 altocumulus01 nova-api[905]: Exit code: 1
+Mar 29 18:29:47 altocumulus01 nova-api[905]: Stdout: u''
+Mar 29 18:29:47 altocumulus01 nova-api[905]: Stderr: u'sudo: no tty present and no askpass program specified\n'
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Traceback (most recent call last):
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     sys.exit(main())
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 309, in __init__
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     self.manager = self._get_manager()
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 364, in _get_manager
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return manager_class()
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/api/manager.py", line 30, in __init__
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     self.network_driver.metadata_accept()
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/network/linux_net.py", line 606, in metadata_accept
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     iptables_manager.apply()
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/network/linux_net.py", line 346, in apply
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     self._apply()
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/lockutils.py", line 271, in inner
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return f(*args, **kwargs)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/network/linux_net.py", line 366, in _apply
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     attempts=5)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/network/linux_net.py", line 1167, in _execute
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return utils.execute(*cmd, **kwargs)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/utils.py", line 297, in execute
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return RootwrapProcessHelper().execute(*cmd, **kwargs)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/utils.py", line 180, in execute
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return processutils.execute(*cmd, **kwargs)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py", line 400, in execute
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     cmd=sanitized_cmd)
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova ProcessExecutionError: Unexpected error while running command.
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Command: sudo nova-rootwrap /etc/nova/rootwrap.conf iptables-save -c
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Exit code: 1
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Stdout: u''
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Stderr: u'sudo: no tty present and no askpass program specified\n'
+Mar 29 18:29:47 altocumulus01 nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova
+

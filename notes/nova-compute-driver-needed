@@ -1,0 +1,1 @@
+Mar 29 18:55:13 altocumulus01 nova-compute[7541]: 2017-03-29 18:55:13.465 7541 ERROR nova.virt.driver [req-1262c2fe-122e-4154-9e49-84584c48d8dd - - - - -] Compute driver option required, but not specified

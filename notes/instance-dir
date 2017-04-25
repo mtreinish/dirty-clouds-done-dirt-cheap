@@ -1,0 +1,15 @@
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager [req-4ec7ce01-bc0b-43a2-8b69-8be96d9de438 - - - - -] Error updating resources for node altocumulus01.
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager Traceback (most recent call last):
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/nova/compute/manager.py", line 6557, in update_available_resource_for_node
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager     rt.update_available_resource(context, nodename)
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/nova/compute/resource_tracker.py", line 535, in update_available_resource
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager     resources = self.driver.get_available_resource(nodename)
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py", line 5563, in get_available_resource
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager     disk_info_dict = self._get_local_gb_info()
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py", line 5176, in _get_local_gb_info
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager     info = libvirt_utils.get_fs_info(CONF.instances_path)
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/utils.py", line 447, in get_fs_info
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager     hddinfo = os.statvfs(path)
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager OSError: [Errno 2] No such file or directory: '/var/lib/nova/state/instances'
+Mar 29 19:06:53 altocumulus01 nova-compute[8522]: 2017-03-29 19:06:53.174 8522 ERROR nova.compute.manager
+

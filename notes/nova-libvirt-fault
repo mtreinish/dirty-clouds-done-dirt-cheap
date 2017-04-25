@@ -1,0 +1,27 @@
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host [-] Connection to libvirt failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': Permission denied
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host Traceback (most recent call last):
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/host.py", line 452, in get_connection
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     conn = self._get_connection()
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/host.py", line 435, in _get_connection
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     {'msg': ex})
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/excutils.py", line 220, in __exit__
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     self.force_reraise()
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/excutils.py", line 196, in force_reraise
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     six.reraise(self.type_, self.value, self.tb)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/host.py", line 424, in _get_connection
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     self._wrapped_conn = self._get_new_connection()
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/host.py", line 369, in _get_new_connection
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     wrapped_conn = self._connect(self._uri, self._read_only)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/nova/virt/libvirt/host.py", line 225, in _connect
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     libvirt.openAuth, uri, auth, flags)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/eventlet/tpool.py", line 144, in proxy_call
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     rv = execute(f, *args, **kwargs)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/eventlet/tpool.py", line 125, in execute
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     six.reraise(c, e, tb)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/local/lib/python2.7/dist-packages/eventlet/tpool.py", line 83, in tworker
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     rv = meth(*args, **kwargs)
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host   File "/usr/lib/python2.7/dist-packages/libvirt.py", line 105, in openAuth
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host     if ret is None:raise libvirtError('virConnectOpenAuth() failed')
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host libvirtError: Failed to connect socket to '/var/run/libvirt/libvirt-sock': Permission denied
+Mar 29 19:00:53 altocumulus01 nova-compute[8000]: 2017-03-29 19:00:53.212 8000 ERROR nova.virt.libvirt.host
+

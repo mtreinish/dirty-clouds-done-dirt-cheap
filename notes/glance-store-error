@@ -1,0 +1,29 @@
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data [req-8ff7f7d2-a4a5-4558-b5a9-9ecca139675f 20f283024ffd4bf4841a8d33bdb4f385 6c3fc6392e0c487e85d57afe5a5ab2b7 - default default] Error in store configuration. Adding images to store is disabled.
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data Traceback (most recent call last):
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/api/v2/image_data.py", line 116, in upload
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     image.set_data(data, size)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/domain/proxy.py", line 195, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     self.base.set_data(data, size)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/notifier.py", line 480, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     _send_notification(notify_error, 'image.upload', msg)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/excutils.py", line 220, in __exit__
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     self.force_reraise()
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/excutils.py", line 196, in force_reraise
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     six.reraise(self.type_, self.value, self.tb)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/notifier.py", line 427, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     self.repo.set_data(data, size)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/api/policy.py", line 192, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     return self.image.set_data(*args, **kwargs)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/quota/__init__.py", line 304, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     self.image.set_data(data, size=size)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/location.py", line 439, in set_data
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     verifier=verifier)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance_store/backend.py", line 453, in add_to_backend
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     verifier)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance_store/backend.py", line 426, in store_add_to_backend
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     verifier=verifier)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance_store/capabilities.py", line 223, in op_checker
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     raise op_exec_map[op](**kwargs)
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data StoreAddDisabled: Configuration for store failed. Adding images to this store is disabled.
+Mar 29 16:21:52 altocumulus01 glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data
+
