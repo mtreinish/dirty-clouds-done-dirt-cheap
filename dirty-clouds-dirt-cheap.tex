@@ -189,18 +189,23 @@
     \frametitle{Installing the Operating System}
     \begin{itemize}
         \item Installed Ubuntu 16.04 LTS server
-        \item 
+        \item Nothing special, stick with base packages
     \end{itemize}
 \end{frame}
 
 \section{Installing OpenStack}
 \begin{frame}
-   
+    \frametitle{Installing OpenStack}
+
 \end{frame}
 
 \subsection{Keystone}
 \begin{frame}
-
+    \begin{itemize}
+    \item 2 config options
+    \item Needed a service user
+    \item Requirements issue 
+    \end{itemize}
 \end{frame}
 
 \subsection{Glance}
@@ -222,6 +227,24 @@
 \begin{frame}
 
 \end{frame}
+
+\subsection{What is difficult with this process}
+\begin{frame}
+    \begin{itemize}
+        \item Python Packaging:
+            \begin{itemize}
+                \item Binary Dependencies
+                \item etc files (and any data files)
+                \item No dependency solver, use upper constraints
+            \end{itemize}
+        \item Debugging OpenStack requires a high level of competence
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    
+\end{frame}
+
 
 \section{What to do with your budget cloud?}
 \begin{frame}
