@@ -196,46 +196,103 @@
 \section{Installing OpenStack}
 \begin{frame}
     \frametitle{Installing OpenStack}
-
+    \begin{enumerate}
+        \item Download service tarball
+        \item 
+    \end{enumerate}
 \end{frame}
 
 \subsection{Keystone}
 \begin{frame}
-    \begin{itemize}
-    \item 2 config options
-    \item Needed a service user
-    \item Requirements issue 
-    \end{itemize}
+    \frametitle{Setting Up Keystone}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item 2 config options
+                \item Needed a service user
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mascots/keystone.eps}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/keystone-start-failure-cut}
 \end{frame}
 
 \subsection{Glance}
 \begin{frame}
+    \frametitle{Setting up Glance}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item Needed a service user
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mascots/glance.eps}
+        \end{column}
+    \end{columns}
+\end{frame}
 
+\begin{frame}
+    \frametitle{Don't forget to create glance store directory}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/glance-store-error-cut}
 \end{frame}
 
 \subsection{Nova}
 \begin{frame}
-
+    \frametitle{Setting up Nova}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item Needed
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mascots/nova.eps}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \subsection{Neutron}
 \begin{frame}
+    \frametitle{Setting Up Neutron}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item Needed
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mascots/neutron.eps}
+        \end{column}
+    \end{columns}
 
 \end{frame}
+
+\begin{frame}
+    \frametitle{Setting up Compute Nodes}
+        
+\end{frame}
+
 
 \subsection{Booting the first server}
 \begin{frame}
-
+    
 \end{frame}
 
-\subsection{What is difficult with this process}
+\subsection{Installation Pain Points}
 \begin{frame}
+    \frametitle{Installation Pain Points}
     \begin{itemize}
         \item Python Packaging:
             \begin{itemize}
                 \item Binary Dependencies
                 \item etc files (and any data files)
-                \item No dependency solver, use upper constraints
+                \item No dependency solver, always use upper constraints
             \end{itemize}
         \item Debugging OpenStack requires a high level of competence
     \end{itemize}

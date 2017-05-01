@@ -1,0 +1,10 @@
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data [req-8ff7f7d2-a4a5-4558-b5a9-9ecca139675f 20f283024ffd4bf4841a8d33bdb4f385 6c3fc6392e0c487e85d57afe5a5ab2b7 - default default] Error in store configuration. Adding images to store is disabled.
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data Traceback (most recent call last):
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance/api/v2/image_data.py", line 116, in upload
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     image.set_data(data, size)
+...
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance_store/backend.py", line 426, in store_add_to_backend
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     verifier=verifier)
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data   File "/usr/local/lib/python2.7/dist-packages/glance_store/capabilities.py", line 223, in op_checker
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data     raise op_exec_map[op](**kwargs)
+glance-api[29623]: 2017-03-29 16:21:52.038 29647 ERROR glance.api.v2.image_data StoreAddDisabled: Configuration for store failed. Adding images to this store is disabled.
