@@ -90,6 +90,8 @@
 \section{Building a Cloud}
 \begin{frame}
 \frametitle{Building a Cloud}
+\centering
+\includegraphics[width=.775\textwidth]{cloud_seeding.png}
 \end{frame}
 
 \begin{frame}
@@ -114,8 +116,8 @@
 \frametitle{Buying Hardware}
     \begin{itemize}
         \item Maximize core count per USD
-        \item Second priority is amount RAM
-        \item Machines don't need to be fast (that costs money)
+        \item Second priority is amount of RAM per core
+        \item Machines don't need to be fast (that costs money!)
     \end{itemize}
 \end{frame}
 
@@ -144,7 +146,7 @@
     \end{tabular}
     \\
     \begin{center}
-        \Huge{\textbf{\$215 Each}}
+        \Huge{\textbf{\$215 Each!!}}
     \end{center}
 \end{frame}
 
@@ -160,6 +162,7 @@
                 \item No management interface
                 \item No redundant power supply
             \end{itemize}
+        \item Dead RAID controller battery
         \item Memory installed in wrong slots
         \item Came pre-installed with Windows Server 2012 (and default password Apple123)
         \item At full fan speed \textbf{>70 dB}
@@ -176,11 +179,30 @@
 
 \begin{frame}
     \frametitle{LackRack}
+    \href{https://wiki.eth0.nl/index.php/LackRack}{https://wiki.eth0.nl/index.php/LackRack}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item Use a LACK side table from Ikea
+                \item 19 inch width between legs
+                \item Can fit 8U
+                \item Lots of color choices
+                \item \$9.99 USD
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{lackrack_cover.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
     \centering
     \includegraphics[width=.75\textwidth]{lack_rack.jpg}
 \end{frame}
 
 \begin{frame}
+    \centering
     \includegraphics[width=.9\textwidth]{data_closet.jpg}
 \end{frame}
 
@@ -195,21 +217,29 @@
 
 \section{Installing OpenStack}
 \begin{frame}
-    \frametitle{Installing OpenStack}
+    \frametitle{Installing OpenStack Services}
     \begin{enumerate}
         \item Download service tarball
-        \item 
+        \item Create service users
+        \item Install binary requirements
+        \item Create service dirs in /etc and /var/lib
+        \item Copy etc/ from tarball into /etc/\$Service
+        \item pip install the tarball
+        \item Follow install guide on project configuration and setup
     \end{enumerate}
 \end{frame}
 
-\subsection{Keystone}
+\subsection{Installing the Controller}
+\subsubsection{Keystone}
 \begin{frame}
     \frametitle{Setting Up Keystone}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
                 \item 2 config options
-                \item Needed a service user
+                \item Install guide doesn't have instructions on
+                    apache wsgi app setup
+                \item Google search found: \href{https://docs.openstack.org/developer/keystone/apache-httpd.html}{https://docs.openstack.org/developer/keystone/apache-httpd.html}
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -222,13 +252,18 @@
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/keystone-start-failure-cut}
 \end{frame}
 
-\subsection{Glance}
+\subsubsection{Glance}
 \begin{frame}
     \frametitle{Setting up Glance}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
-                \item Needed a service user
+                \item Straightforward configuration:
+                    \begin{itemize}
+                        \item Auth
+                        \item Image Directories
+                        \item Database
+                    \end{itemize}
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -242,13 +277,15 @@
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/glance-store-error-cut}
 \end{frame}
 
-\subsection{Nova}
+\subsubsection{Nova}
 \begin{frame}
     \frametitle{Setting up Nova}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
-                \item Needed
+                \item Database migrations are slower, took about 3mins
+                \item Don't forget the placement API, no docs on apache setup
+                \item novnc is problematic
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -257,7 +294,17 @@
     \end{columns}
 \end{frame}
 
-\subsection{Neutron}
+\begin{frame}
+    \frametitle{Requirements}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-requirements-error-cut}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Don't forget your sudoers file}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-sudo-error-cut}
+\end{frame}
+
+\subsubsection{Neutron}
 \begin{frame}
     \frametitle{Setting Up Neutron}
     \begin{columns}[T]
@@ -273,6 +320,7 @@
 
 \end{frame}
 
+\subsection{Setting up Compute Nodes}
 \begin{frame}
     \frametitle{Setting up Compute Nodes}
         
@@ -298,11 +346,6 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    
-\end{frame}
-
-
 \section{What to do with your budget cloud?}
 \begin{frame}
     \frametitle{What to do with your budget cloud?}
@@ -315,28 +358,30 @@
     \frametitle{OpenStack Development}
     \begin{itemize}
         \item Lots of capacity for running devstack
-        \item A really good platform to develop and test OpenStack applications
+        \item A really good platform to develop and test OpenStack
+              applications
+        \item
     \end{itemize}
 \end{frame}
 
 \subsection{Cloud Native Compute Workloads}
 \begin{frame}
     \begin{itemize}
-
+        \frametitle{Cloud Native Compute Workloads}
         \item \href{https://github.com/mtreinish/handbrakecloud}{https://github.com/mtreinish/handbrakecloud}
     \end{itemize}
 \end{frame}
 
 \subsection{Virtualized Infrastructure}
 \begin{frame}
-
+    \frametitle{Virtualized Infrastructure}
 \end{frame}
 
 
 
 \section{Conclusion}
 \begin{frame}
-    
+    \frametitle{Making OpenStack Better for Small Deployments}
 \end{frame}
 
 \subsection{Why you don't want to do this}
