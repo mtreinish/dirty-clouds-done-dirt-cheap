@@ -380,8 +380,10 @@
 \begin{frame}
         \frametitle{Cloud Native Compute Workloads}
         \begin{itemize}
-        \item Any embarrasingly parallel workloads
-        \item \href{https://github.com/mtreinish/handbrakecloud}{https://github.com/mtreinish/handbrakecloud}
+        \item Good for running embarrasingly parallel workloads
+        \item Each invidiual machine is slow, but a fair amount of
+            parallel capacity.
+        \item My example use case: \href{https://github.com/mtreinish/handbrakecloud}{https://github.com/mtreinish/handbrakecloud}
     \end{itemize}
 \end{frame}
 
@@ -414,7 +416,8 @@
     \begin{itemize}
         \item Honestly, it's not that bad
         \item >=90\% of the issues were because I used tarballs
-        \item Networking is very confusing
+        \item Networking is still very confusing
+        \item Work on improving logging and error reporting
     \end{itemize}
 \end{frame}
 
@@ -422,8 +425,8 @@
 \begin{frame}
     \begin{itemize}
         \item 5x 1U Servers in your bedroom closet is not pleasant
-        \item The power bill
-        \item 
+        \item The power bill (at peak draw it's about 1.1kW for the rack)
+        \item Don't get to spend \$1,328.37 on a weekend vacation
     \end{itemize}
 \end{frame}
 
