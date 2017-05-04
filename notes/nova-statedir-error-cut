@@ -1,0 +1,16 @@
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova Traceback (most recent call last):
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     sys.exit(main())
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 311, in __init__
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     self.app = self.loader.load_app(name)
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/wsgi.py", line 497, in load_app
+...
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/api/openstack/compute/cloudpipe.py", line 55, in setup
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     fileutils.ensure_tree(CONF.crypto.keys_path)
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/fileutils.py", line 40, in ensure_tree
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     os.makedirs(path, mode)
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova   File "/usr/lib/python2.7/os.py", line 157, in makedirs
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova     mkdir(name, mode)
+Mar 29 17:46:28 altocumulus01 nova-api[32263]: 2017-03-29 17:46:28.176 32263 ERROR nova OSError: [Errno 13] Permission denied: '/usr/local/lib/python2.7/dist-packages/keys'

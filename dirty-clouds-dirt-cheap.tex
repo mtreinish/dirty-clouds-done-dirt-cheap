@@ -107,7 +107,7 @@
             \item Nova
             \item Neutron
         \end{itemize}
-        \item Install from Ocata from tarballs
+        \item Install Ocata from tarballs
         \item No automation or pre-existing install scripts
     \end{itemize}
 \end{frame}
@@ -162,8 +162,10 @@
                 \item No management interface
                 \item No redundant power supply
             \end{itemize}
-        \item Dead RAID controller battery
+        \item 4x8GB of RAM not 8x4GB
         \item Memory installed in wrong slots
+        \item Dead RAID controller battery
+        \item Came with 15k RPM hard drives not 10k RPM
         \item Came pre-installed with Windows Server 2012 (and default password Apple123)
         \item At full fan speed \textbf{>70 dB}
     \end{itemize}
@@ -217,6 +219,11 @@
 
 \section{Installing OpenStack}
 \begin{frame}
+    \frametitle{Installing OpenStack}
+    \centering
+    \includegraphics[width=.8\textwidth]{service-split.eps}
+\end{frame}
+\begin{frame}
     \frametitle{Installing OpenStack Services}
     \begin{enumerate}
         \item Download service tarball
@@ -249,6 +256,7 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Python Requirements aren't fun}
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/keystone-start-failure-cut}
 \end{frame}
 
@@ -285,7 +293,7 @@
             \begin{itemize}
                 \item Database migrations are slower, took about 3mins
                 \item Don't forget the placement API, no docs on apache setup
-                \item novnc is problematic
+                \item novnc is problematic from source
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -295,7 +303,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Requirements}
+    \frametitle{Requirements still aren't fun}
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-requirements-error-cut}
 \end{frame}
 
@@ -304,46 +312,50 @@
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-sudo-error-cut}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Don't forget to create state directories}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-statedir-error-cut}
+\end{frame}
+
 \subsubsection{Neutron}
+\begin{frame}
+    \frametitle{Networking Configuration}
+    \centering
+    \includegraphics[width=.7\textwidth]{network-topology.png}
+\end{frame}
+
 \begin{frame}
     \frametitle{Setting Up Neutron}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
-                \item Needed
+                \item Too many configuration files
+                \item Blindly copying pasting from install guide
+                \item Rootwrap and sudo configuration are not documented
+                \item First time I had to look at packages and/or devstack
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
             \includegraphics[width=\textwidth]{mascots/neutron.eps}
         \end{column}
     \end{columns}
-
 \end{frame}
 
 \subsection{Setting up Compute Nodes}
 \begin{frame}
     \frametitle{Setting up Compute Nodes}
-        
+
+    \begin{itemize}
+        \item Same basic formula
+        \item Rinse and repeat 4 times
+        \item Don't forget to run nova discover\_hosts after bring it up
+    \end{itemize}
 \end{frame}
 
 
 \subsection{Booting the first server}
 \begin{frame}
     
-\end{frame}
-
-\subsection{Installation Pain Points}
-\begin{frame}
-    \frametitle{Installation Pain Points}
-    \begin{itemize}
-        \item Python Packaging:
-            \begin{itemize}
-                \item Binary Dependencies
-                \item etc files (and any data files)
-                \item No dependency solver, always use upper constraints
-            \end{itemize}
-        \item Debugging OpenStack requires a high level of competence
-    \end{itemize}
 \end{frame}
 
 \section{What to do with your budget cloud?}
@@ -366,22 +378,44 @@
 
 \subsection{Cloud Native Compute Workloads}
 \begin{frame}
-    \begin{itemize}
         \frametitle{Cloud Native Compute Workloads}
+        \begin{itemize}
+        \item Any embarrasingly parallel workloads
         \item \href{https://github.com/mtreinish/handbrakecloud}{https://github.com/mtreinish/handbrakecloud}
     \end{itemize}
 \end{frame}
 
 \subsection{Virtualized Infrastructure}
 \begin{frame}
-    \frametitle{Virtualized Infrastructure}
+    \frametitle{Virtualized Home Infrastructure}
+    \begin{itemize}
+        \item Gives you the flexability
+        \item Also enables HA migration to public cloud
+    \end{itemize}
 \end{frame}
 
 
-
 \section{Conclusion}
+\subsection{Installation Pain Points}
+\begin{frame}
+    \frametitle{Installation Pain Points}
+    \begin{itemize}
+        \item Python Packaging:
+            \begin{itemize}
+                \item Binary Dependencies
+                \item etc files (and any data files)
+                \item No dependency solver, always use upper constraints
+            \end{itemize}
+        \item Debugging OpenStack requires a high level of competence
+    \end{itemize}
+\end{frame}
 \begin{frame}
     \frametitle{Making OpenStack Better for Small Deployments}
+    \begin{itemize}
+        \item Honestly, it's not that bad
+        \item >=90\% of the issues were because I used tarballs
+        \item Networking is very confusing
+    \end{itemize}
 \end{frame}
 
 \subsection{Why you don't want to do this}
@@ -399,6 +433,8 @@
 \frametitle{Where to get more information}
     \begin{itemize}
         \item openstack-dev ML\: \href{mailto:openstack-dev@lists.openstack.org}{openstack-dev@lists.openstack.org}
+        \item Ocata install guides\: \href{https://docs.openstack.org/project-install-guide/ocata/}{https://docs.openstack.org/project-install-guide/ocata/}
+        \item Ocata network guides\: \href{https://docs.openstack.org/ocata/networking-guide/}{https://docs.openstack.org/ocata/networking-guide/}
    \end{itemize}
 \end{frame}
 
