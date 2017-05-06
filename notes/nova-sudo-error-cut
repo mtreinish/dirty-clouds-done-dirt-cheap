@@ -1,18 +1,18 @@
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Traceback (most recent call last):
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     sys.exit(main())
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 309, in __init__
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     self.manager = self._get_manager()
+ERROR nova Traceback (most recent call last):
+ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
+ERROR nova     sys.exit(main())
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
+ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 309, in __init__
+ERROR nova     self.manager = self._get_manager()
 ...
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/utils.py", line 180, in execute
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     return processutils.execute(*cmd, **kwargs)
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py", line 400, in execute
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova     cmd=sanitized_cmd)
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova ProcessExecutionError: Unexpected error while running command.
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Command: sudo nova-rootwrap /etc/nova/rootwrap.conf iptables-save -c
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Exit code: 1
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Stdout: u''
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova Stderr: u'sudo: no tty present and no askpass program specified\n'
-nova-api[905]: 2017-03-29 18:29:47.844 905 ERROR nova
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/utils.py", line 180, in execute
+ERROR nova     return processutils.execute(*cmd, **kwargs)
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py", line 400, in execute
+ERROR nova     cmd=sanitized_cmd)
+ERROR nova ProcessExecutionError: Unexpected error while running command.
+ERROR nova Command: sudo nova-rootwrap /etc/nova/rootwrap.conf iptables-save -c
+ERROR nova Exit code: 1
+ERROR nova Stdout: u''
+ERROR nova Stderr: u'sudo: no tty present and no askpass program specified\n'
+ERROR nova

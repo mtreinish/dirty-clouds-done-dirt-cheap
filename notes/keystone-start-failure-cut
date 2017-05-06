@@ -1,13 +1,13 @@
-2017-03-29 15:27:01.478 26833 ERROR keystone Traceback (most recent call last):
-2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/bin/keystone-wsgi-admin", line 51, in <module>
-2017-03-29 15:27:01.478 26833 ERROR keystone     application = initialize_admin_application()
-2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 132, in initialize_admin_application
-2017-03-29 15:27:01.478 26833 ERROR keystone     config_files=_get_config_files())
+ERROR keystone Traceback (most recent call last):
+ERROR keystone   File "/usr/local/bin/keystone-wsgi-admin", line 51, in <module>
+ERROR keystone     application = initialize_admin_application()
+ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 132, in initialize_admin_application
+ERROR keystone     config_files=_get_config_files())
 ...
-2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 640, in find_egg_entry_point
-2017-03-29 15:27:01.478 26833 ERROR keystone     pkg_resources.require(self.spec)
-2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 943, in require
-2017-03-29 15:27:01.478 26833 ERROR keystone     needed = self.resolve(parse_requirements(requirements))
-2017-03-29 15:27:01.478 26833 ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 834, in resolve
-2017-03-29 15:27:01.478 26833 ERROR keystone     raise VersionConflict(dist, req).with_context(dependent_req)
-2017-03-29 15:27:01.478 26833 ERROR keystone ContextualVersionConflict: (requests 2.13.0 (/usr/local/lib/python2.7/dist-packages), Requirement.parse('requests!=2.12.2,!=2.13.0,>=2.10.0'), set(['oslo.policy']))
+ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 640, in find_egg_entry_point
+ERROR keystone     pkg_resources.require(self.spec)
+ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 943, in require
+ERROR keystone     needed = self.resolve(parse_requirements(requirements))
+ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 834, in resolve
+ERROR keystone     raise VersionConflict(dist, req).with_context(dependent_req)
+ERROR keystone ContextualVersionConflict: (requests 2.13.0 (/usr/local/lib/python2.7/dist-packages), Requirement.parse('requests!=2.12.2,!=2.13.0,>=2.10.0'), set(['oslo.policy']))

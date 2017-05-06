@@ -1,11 +1,11 @@
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova Traceback (most recent call last):
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova     sys.exit(main())
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
+ERROR nova Traceback (most recent call last):
+ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
+ERROR nova     sys.exit(main())
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
+ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
 ...
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2324, in require
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova     items = working_set.resolve(reqs, env, installer, extras=self.extras)
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 859, in resolve
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova     raise VersionConflict(dist, req).with_context(dependent_req)
-nova-api[1155]: 2017-03-29 18:33:11.433 1155 ERROR nova ContextualVersionConflict: (pbr 1.10.0 (/usr/local/lib/python2.7/dist-packages), Requirement.parse('pbr>=2.0.0'), set(['oslo.i18n', 'oslo.log', 'oslo.context', 'oslo.utils']))
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2324, in require
+ERROR nova     items = working_set.resolve(reqs, env, installer, extras=self.extras)
+ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 859, in resolve
+ERROR nova     raise VersionConflict(dist, req).with_context(dependent_req)
+ERROR nova ContextualVersionConflict: (pbr 1.10.0 (/usr/local/lib/python2.7/dist-packages), Requirement.parse('pbr>=2.0.0'), set(['oslo.i18n', 'oslo.log', 'oslo.context', 'oslo.utils']))
