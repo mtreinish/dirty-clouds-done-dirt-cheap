@@ -172,14 +172,6 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Assembling the Cloud}
-    \begin{itemize}
-        \item Need something to hold the servers
-        \item Traditional racks are too much money (even used)
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \frametitle{LackRack}
     \href{https://wiki.eth0.nl/index.php/LackRack}{https://wiki.eth0.nl/index.php/LackRack}
     \begin{columns}[T]
@@ -206,15 +198,6 @@
 \begin{frame}
     \centering
     \includegraphics[width=.9\textwidth]{data_closet.jpg}
-\end{frame}
-
-\section{Installing the OS}
-\begin{frame}
-    \frametitle{Installing the Operating System}
-    \begin{itemize}
-        \item Installed Ubuntu 16.04 LTS server
-        \item Nothing special, stick with base packages
-    \end{itemize}
 \end{frame}
 
 \section{Installing OpenStack}
@@ -308,7 +291,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Don't forget your sudoers file}
+    \frametitle{You need a  sudoers file}
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-sudo-error-cut}
 \end{frame}
 
@@ -344,7 +327,6 @@
 \subsection{Setting up Compute Nodes}
 \begin{frame}
     \frametitle{Setting up Compute Nodes}
-
     \begin{itemize}
         \item Same basic formula
         \item Rinse and repeat 4 times
@@ -415,14 +397,15 @@
     \frametitle{Making OpenStack Better for Small Deployments}
     \begin{itemize}
         \item Honestly, it's not that bad
-        \item >=90\% of the issues were because I used tarballs
-        \item Networking is still very confusing
+        \item >=90\% of the issues were because of using tarballs
+        \item Networking and neutron is too confusing
         \item Work on improving logging and error reporting
     \end{itemize}
 \end{frame}
 
 \subsection{Why you don't want to do this}
 \begin{frame}
+    \frametitle{Why you don't want to do this}
     \begin{itemize}
         \item 5x 1U Servers in your bedroom closet is not pleasant
         \item The power bill (at peak draw it's about 1.1kW for the rack)
