@@ -2,7 +2,9 @@
 Traceback (most recent call last):
   File "/usr/local/lib/python2.7/dist-packages/glance/api/v2/image_data.py", line 116, in upload
     image.set_data(data, size)
+
 ...
+
   File "/usr/local/lib/python2.7/dist-packages/glance_store/backend.py", line 426, in store_add_to_backend
     verifier=verifier)
   File "/usr/local/lib/python2.7/dist-packages/glance_store/capabilities.py", line 223, in op_checker

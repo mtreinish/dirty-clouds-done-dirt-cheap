@@ -3,7 +3,9 @@ ERROR keystone   File "/usr/local/bin/keystone-wsgi-admin", line 51, in <module>
 ERROR keystone     application = initialize_admin_application()
 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/keystone/server/wsgi.py", line 132, in initialize_admin_application
 ERROR keystone     config_files=_get_config_files())
+
 ...
+
 ERROR keystone   File "/usr/local/lib/python2.7/dist-packages/paste/deploy/loadwsgi.py", line 640, in find_egg_entry_point
 ERROR keystone     pkg_resources.require(self.spec)
 ERROR keystone   File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 943, in require

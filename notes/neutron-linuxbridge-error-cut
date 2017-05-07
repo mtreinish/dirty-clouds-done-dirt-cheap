@@ -1,0 +1,22 @@
+ERROR neutron.plugins.ml2.drivers.agent._common_agent [req-8c98874d-5436-4912-9db5-f675bfe4df5e - - - - -] Error in agent loop. Devices info: {'current': set(['tap0ab3c3ba-09']), 'timestamps': {'tap0ab3c3ba-09': 9}, 'removed': set([]), 'added': set(['tap0ab3c3ba-09']), 'updated': set([])}
+ERROR neutron.plugins.ml2.drivers.agent._common_agent Traceback (most recent call last):
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/neutron/plugins/ml2/drivers/agent/_common_agent.py", line 453, in daemon_loop
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     sync = self.process_network_devices(device_info)
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/osprofiler/profiler.py", line 153, in wrapper
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     return f(*args, **kwargs)
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/neutron/plugins/ml2/drivers/agent/_common_agent.py", line 203, in process_network_devices
+
+...
+
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     execute_rootwrap_daemon(cmd, process_input, addl_env))
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/neutron/agent/linux/utils.py", line 115, in execute_rootwrap_daemon
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     return client.execute(cmd, process_input)
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/oslo_rootwrap/client.py", line 129, in execute
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     res = proxy.run_one_command(cmd, stdin)
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "<string>", line 2, in run_one_command
+ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/lib/python2.7/multiprocessing/managers.py", line 774, in _callmethod
+ERROR neutron.plugins.ml2.drivers.agent._common_agent     raise convert_to_error(kind, result)
+ERROR neutron.plugins.ml2.drivers.agent._common_agent RemoteError:
+ERROR neutron.plugins.ml2.drivers.agent._common_agent ---------------------------------------------------------------------------
+ERROR neutron.plugins.ml2.drivers.agent._common_agent Unserializable message: ('#ERROR', ValueError('I/O operation on closed file',))
+ERROR neutron.plugins.ml2.drivers.agent._common_agent ---------------------------------------------------------------------------

@@ -5,7 +5,9 @@ ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line
 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 309, in __init__
 ERROR nova     self.manager = self._get_manager()
+
 ...
+
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/utils.py", line 180, in execute
 ERROR nova     return processutils.execute(*cmd, **kwargs)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_concurrency/processutils.py", line 400, in execute

@@ -3,7 +3,9 @@ ERROR nova   File "/usr/local/bin/nova-api", line 10, in <module>
 ERROR nova     sys.exit(main())
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/cmd/api.py", line 59, in main
 ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
+
 ...
+
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2324, in require
 ERROR nova     items = working_set.resolve(reqs, env, installer, extras=self.extras)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 859, in resolve

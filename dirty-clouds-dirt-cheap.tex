@@ -277,6 +277,7 @@
                 \item Database migrations are slower, took about 3mins
                 \item Don't forget the placement API, no docs on apache setup
                 \item novnc is problematic from source
+                \item Set \textit{force\_config\_drive} option to true
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -324,6 +325,11 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Any guesses what this means}
+    \lstinputlisting[basicstyle=\tiny,language=python]{notes/neutron-linuxbridge-error-cut}
+\end{frame}
+
 \subsection{Setting up Compute Nodes}
 \begin{frame}
     \frametitle{Setting up Compute Nodes}
@@ -336,9 +342,23 @@
 
 
 \subsection{Booting the first server}
+%Blank for dramatic effect
 \begin{frame}
     
 \end{frame}
+
+\begin{frame}
+    \frametitle{Blank Images}
+    \lstinputlisting[basicstyle=\small,language=python]{notes/glance-store-0-bytes}
+\end{frame}
+
+\begin{frame}
+    \frametitle{DHCP Fun}
+    \centering
+    \includegraphics[width=.7\textwidth]{network-topology-with-router.png}
+\end{frame}
+
+
 
 \section{What to do with your budget cloud?}
 \begin{frame}

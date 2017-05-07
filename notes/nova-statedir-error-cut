@@ -6,7 +6,9 @@ ERROR nova     server = service.WSGIService(api, use_ssl=should_use_ssl)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/service.py", line 311, in __init__
 ERROR nova     self.app = self.loader.load_app(name)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/wsgi.py", line 497, in load_app
+
 ...
+
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/nova/api/openstack/compute/cloudpipe.py", line 55, in setup
 ERROR nova     fileutils.ensure_tree(CONF.crypto.keys_path)
 ERROR nova   File "/usr/local/lib/python2.7/dist-packages/oslo_utils/fileutils.py", line 40, in ensure_tree
