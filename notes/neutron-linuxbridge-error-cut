@@ -9,10 +9,6 @@ ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/pyt
 ...
 
 ERROR neutron.plugins.ml2.drivers.agent._common_agent     execute_rootwrap_daemon(cmd, process_input, addl_env))
-ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/neutron/agent/linux/utils.py", line 115, in execute_rootwrap_daemon
-ERROR neutron.plugins.ml2.drivers.agent._common_agent     return client.execute(cmd, process_input)
-ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/local/lib/python2.7/dist-packages/oslo_rootwrap/client.py", line 129, in execute
-ERROR neutron.plugins.ml2.drivers.agent._common_agent     res = proxy.run_one_command(cmd, stdin)
 ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "<string>", line 2, in run_one_command
 ERROR neutron.plugins.ml2.drivers.agent._common_agent   File "/usr/lib/python2.7/multiprocessing/managers.py", line 774, in _callmethod
 ERROR neutron.plugins.ml2.drivers.agent._common_agent     raise convert_to_error(kind, result)
