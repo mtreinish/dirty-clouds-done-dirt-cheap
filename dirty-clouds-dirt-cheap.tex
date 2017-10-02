@@ -102,14 +102,8 @@
         \item Pretend to be a sysadmin with no prior OpenStack knowledge
         \item Try to rely only on install docs and google searches
         \item \$1500 USD Budget
-        \item Build a basic compute cloud:
-        \begin{itemize}
-            \item Keystone
-            \item Glance
-            \item Nova
-            \item Neutron
-        \end{itemize}
-        \item Install Ocata from tarballs
+        \item Build a basic compute cloud
+        \item Install the Ocata release (from April 2017) from tarballs
         \item No automation or pre-existing install scripts
     \end{itemize}
 \end{frame}
@@ -202,6 +196,33 @@
 \end{frame}
 
 \section{Installing OpenStack}
+\begin{frame}
+    \frametitle{Picking OpenStack Services}
+    \begin{itemize}
+        \item OpenStack has > 50 projects: \href{https://governance.openstack.org/tc/reference/projects/index.html}{https://governance.openstack.org/tc/reference/projects/index.html}
+        \item Only want minimal set of projects to spin up VMs
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Compute Starter Kit}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item Only need 4 projects to get a functional compute cloud
+                \item Documented at:\\ \small \href{https://www.openstack.org/software/sample-configs\#compute-starter-kit}{https://www.openstack.org/software/sample-configs\#compute-starter-kit}
+                \item \normalsize The official install guide mostly concerned with these projects
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[height=.25\textheight]{mascots/keystone.eps}
+            \includegraphics[height=.25\textheight]{mascots/glance.eps}\\
+            \includegraphics[height=.25\textheight]{mascots/nova.eps}
+            \includegraphics[height=.25\textheight]{mascots/neutron.eps}\\
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}
     \frametitle{Installing OpenStack}
     \centering
