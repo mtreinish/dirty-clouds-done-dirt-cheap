@@ -327,7 +327,7 @@
 \begin{frame}
     \frametitle{Networking Configuration}
     \centering
-    \includegraphics[width=.7\textwidth]{network-topology.png}
+    \includegraphics[width=.7\textwidth]{deploy-lb-provider-overview.png}
 \end{frame}
 
 \begin{frame}
@@ -352,13 +352,19 @@
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/neutron-linuxbridge-error-cut}
 \end{frame}
 
+\begin{frame}
+    \frametitle{DHCP Fun}
+    \centering
+    \includegraphics[width=.7\textwidth]{network-topology-with-router.png}
+\end{frame}
+
 \subsection{Setting up Compute Nodes}
 \begin{frame}
     \frametitle{Setting up Compute Nodes}
     \begin{itemize}
         \item Same basic formula
         \item Rinse and repeat 4 times
-        \item Don't forget to run nova discover\_hosts after bring it up
+        \item Don't forget to run nova discover\_hosts for each new node
     \end{itemize}
 \end{frame}
 
@@ -375,9 +381,13 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{DHCP Fun}
-    \centering
-    \includegraphics[width=.7\textwidth]{network-topology-with-router.png}
+    \frametitle{Where's my metadata?}
+    \begin{itemize}
+        \item Without DHCP neutron can't set routes to metadata service at \textit{169.254.169.254}
+        \item Need to get IP address into the guest to start networking
+        \item Use Nova's ConfigDrive works except most versions of Cloud Init don't set static IP from config drives
+        \item Need to create custom images with OpenStack Glean
+    \end{itemize}
 \end{frame}
 
 
@@ -463,6 +473,7 @@
         \item openstack-dev ML\: \href{mailto:openstack-dev@lists.openstack.org}{openstack-dev@lists.openstack.org}
         \item Ocata install guides\: \href{https://docs.openstack.org/project-install-guide/ocata/}{https://docs.openstack.org/project-install-guide/ocata/}
         \item Ocata network guides\: \href{https://docs.openstack.org/ocata/networking-guide/}{https://docs.openstack.org/ocata/networking-guide/}
+        \item Blog post about the project: \href{http://blog.kortar.org/?p=380}{http://blog.kortar.org/?p=380}
    \end{itemize}
 \end{frame}
 
