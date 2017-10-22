@@ -97,6 +97,11 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{OpenStack Mission Statement}
+    \Large \textbf{The OpenStack Mission:} \textit{to produce a ubiquitous Open Source Cloud Computing platform that is easy to use, simple to implement, interoperable between deployments, \textbf{works well at all scales}, and meets the needs of users and operators of both public and private clouds.}
+\end{frame}
+
+\begin{frame}
 \frametitle{Scope of the Project}
     \begin{itemize}
         \item Pretend to be a sysadmin with no prior OpenStack knowledge
@@ -197,10 +202,10 @@
 
 \section{Installing OpenStack}
 \begin{frame}
-    \frametitle{Picking OpenStack Services}
+    \frametitle{Figuring Out How To Deploy OpenStack}
     \begin{itemize}
-        \item OpenStack has > 50 projects: \href{https://governance.openstack.org/tc/reference/projects/index.html}{https://governance.openstack.org/tc/reference/projects/index.html}
-        \item Only want minimal set of projects to spin up VMs
+        \item OpenStack has > 50 projects teams: \href{https://governance.openstack.org/tc/reference/projects/index.html}{https://governance.openstack.org/tc/reference/projects/index.html}
+        \item Only want the the minimal set of projects to spin up VMs
     \end{itemize}
 \end{frame}
 
@@ -385,8 +390,8 @@
     \begin{itemize}
         \item Without DHCP neutron can't set routes to metadata service at \textit{169.254.169.254}
         \item Need to get IP address into the guest to start networking
-        \item Use Nova's ConfigDrive works except most versions of Cloud Init don't set static IP from config drives
-        \item Need to create custom images with OpenStack Glean
+        \item Use Nova's ConfigDrive works except most versions of cloud-init don't set static IP from config drives
+        \item Need to create custom images with Glean instead of cloud-init
     \end{itemize}
 \end{frame}
 
