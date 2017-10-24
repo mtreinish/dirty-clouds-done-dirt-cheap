@@ -204,6 +204,7 @@
 \begin{frame}
     \frametitle{Figuring Out How To Deploy OpenStack}
     \begin{itemize}
+        \item Over 1800 git repositories hosted on: \href{https://git.openstack.org/}{https://git.openstack.org/}
         \item OpenStack has > 50 projects teams: \href{https://governance.openstack.org/tc/reference/projects/index.html}{https://governance.openstack.org/tc/reference/projects/index.html}
         \item Only want the the minimal set of projects to spin up VMs
     \end{itemize}
@@ -216,7 +217,7 @@
             \begin{itemize}
                 \item Only need 4 projects to get a functional compute cloud
                 \item Documented at:\\ \small \href{https://www.openstack.org/software/sample-configs\#compute-starter-kit}{https://www.openstack.org/software/sample-configs\#compute-starter-kit}
-                \item \normalsize The official install guide mostly concerned with these projects
+                \item \normalsize The install guide mostly concerned with these projects
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -304,7 +305,6 @@
                 \item Database migrations are slower, took about 3mins
                 \item Don't forget the placement API, no docs on apache setup
                 \item novnc is problematic from source
-                \item Set \textit{force\_config\_drive} option to true
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -332,7 +332,7 @@
 \begin{frame}
     \frametitle{Networking Configuration}
     \centering
-    \includegraphics[width=.7\textwidth]{deploy-lb-provider-overview.png}
+    \includegraphics[width=.65\textwidth]{deploy-lb-provider-overview.png}
 \end{frame}
 
 \begin{frame}
@@ -369,7 +369,7 @@
     \begin{itemize}
         \item Same basic formula
         \item Rinse and repeat 4 times
-        \item Don't forget to run nova discover\_hosts for each new node
+        \item Don't forget to run \textit{nova-manage cell\_v2 discover\_hosts} for each new node
     \end{itemize}
 \end{frame}
 
@@ -390,11 +390,35 @@
     \begin{itemize}
         \item Without DHCP neutron can't set routes to metadata service at \textit{169.254.169.254}
         \item Need to get IP address into the guest to start networking
-        \item Use Nova's ConfigDrive works except most versions of cloud-init don't set static IP from config drives
+        \item Using Nova's ConfigDrive works except most versions of cloud-init don't set static IP from config drives
+        \item Set \textit{force\_config\_drive} option to true
         \item Need to create custom images with Glean instead of cloud-init
     \end{itemize}
 \end{frame}
 
+\subsection{Installation Pain Points}
+\begin{frame}
+    \frametitle{Installation Pain Points}
+    \begin{itemize}
+        \item Python Packaging:
+            \begin{itemize}
+                \item Binary Dependencies
+                \item etc files (and any data files)
+                \item No dependency solver, always use upper constraints
+            \end{itemize}
+        \item Debugging OpenStack requires a high level of competence
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Making OpenStack Better for Small Deployments}
+    \begin{itemize}
+        \item Honestly, it's not that bad
+        \item >=90\% of the issues were because of using tarballs
+        \item Networking and neutron is too confusing
+        \item Work on improving logging and error reporting
+    \end{itemize}
+\end{frame}
 
 
 \section{What to do with your budget cloud?}
@@ -408,7 +432,7 @@
 \begin{frame}
     \frametitle{OpenStack Development}
     \begin{itemize}
-        \item Lots of capacity for running devstack
+        \item Lots of capacity for running devstack or virtual clouds
         \item A really good platform to develop and test OpenStack
               applications
         \item For example I found 4 tempest bugs testing it on the cloud
@@ -437,35 +461,12 @@
 
 
 \section{Conclusion}
-\subsection{Installation Pain Points}
-\begin{frame}
-    \frametitle{Installation Pain Points}
-    \begin{itemize}
-        \item Python Packaging:
-            \begin{itemize}
-                \item Binary Dependencies
-                \item etc files (and any data files)
-                \item No dependency solver, always use upper constraints
-            \end{itemize}
-        \item Debugging OpenStack requires a high level of competence
-    \end{itemize}
-\end{frame}
-\begin{frame}
-    \frametitle{Making OpenStack Better for Small Deployments}
-    \begin{itemize}
-        \item Honestly, it's not that bad
-        \item >=90\% of the issues were because of using tarballs
-        \item Networking and neutron is too confusing
-        \item Work on improving logging and error reporting
-    \end{itemize}
-\end{frame}
-
 \subsection{Why you don't want to do this}
 \begin{frame}
     \frametitle{Why you don't want to do this}
     \begin{itemize}
         \item 5x 1U Servers in your bedroom closet is not pleasant
-        \item The power bill (at peak draw it's about 1.1kW for the rack)
+        \item The power bill (at peak draw it's about 1.35kW for the rack)
         \item Don't get to spend \$1,328.37 on a weekend vacation
     \end{itemize}
 \end{frame}
@@ -479,6 +480,8 @@
         \item Ocata install guides\: \href{https://docs.openstack.org/project-install-guide/ocata/}{https://docs.openstack.org/project-install-guide/ocata/}
         \item Ocata network guides\: \href{https://docs.openstack.org/ocata/networking-guide/}{https://docs.openstack.org/ocata/networking-guide/}
         \item Blog post about the project: \href{http://blog.kortar.org/?p=380}{http://blog.kortar.org/?p=380}
+        \item These slides: \href{https://github.com/mtreinish/dirty-clouds-done-dirt-cheap/tree/oss-eu-2017}{https://github.com/mtreinish/dirty-clouds-done-dirt-cheap/tree/oss-eu-2017}
+
    \end{itemize}
 \end{frame}
 
