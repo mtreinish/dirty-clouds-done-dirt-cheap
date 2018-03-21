@@ -70,6 +70,13 @@
 \title[Dirty Clouds Done Dirt Cheap
 \hspace{2em}\insertframenumber/\inserttotalframenumber]{Dirty Clouds Done Dirt Cheap}
 
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
 \begin{document}
 
 {%
@@ -335,7 +342,6 @@
     \includegraphics[width=.85\textwidth]{futurama-fry.png}
 \end{frame}
 
-\subsection{OpenStack Development}
 \begin{frame}
     \frametitle{OpenStack Development}
     \begin{itemize}
@@ -344,12 +350,12 @@
               applications
         \item For example I found 4 tempest bugs testing it on the cloud
     \end{itemize}
-\end{frame}
+    \vspace{5mm}
 
-\subsection{Cloud Native Compute Workloads}
-\begin{frame}
-        \frametitle{Cloud Native Compute Workloads}
-        \begin{itemize}
+   \Wider[4em]{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Cloud Native Compute Workloads}
+       \usebeamerfont{normal text}\usebeamercolor[fg]{normal text}
+
+    \begin{itemize}
         \item Good for running embarrasingly parallel workloads
         \item Each invidiual machine is slow, but a fair amount of
             parallel capacity.
