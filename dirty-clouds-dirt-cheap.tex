@@ -241,87 +241,13 @@
 \end{frame}
 
 \subsection{Installing the Controller}
-\subsubsection{Keystone}
-\begin{frame}
-    \frametitle{Setting Up Keystone}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item 2 config options
-                \item Install guide doesn't have instructions on
-                    apache wsgi app setup
-                \item Google search found: \href{https://docs.openstack.org/developer/keystone/apache-httpd.html}{https://docs.openstack.org/developer/keystone/apache-httpd.html}
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{mascots/keystone.eps}
-        \end{column}
-    \end{columns}
-\end{frame}
-
+\subsubsection{Requirements issues}
 \begin{frame}
     \frametitle{Python Requirements aren't fun}
     \lstinputlisting[basicstyle=\tiny,language=python]{notes/keystone-start-failure-cut}
 \end{frame}
 
-\subsubsection{Glance}
-\begin{frame}
-    \frametitle{Setting up Glance}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item Straightforward configuration:
-                    \begin{itemize}
-                        \item Auth
-                        \item Image Directories
-                        \item Database
-                    \end{itemize}
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{mascots/glance.eps}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Don't forget to create glance store directory}
-    \lstinputlisting[basicstyle=\tiny,language=python]{notes/glance-store-error-cut}
-\end{frame}
-
-\subsubsection{Nova}
-\begin{frame}
-    \frametitle{Setting up Nova}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item Database migrations are slower, took about 3mins
-                \item Don't forget the placement API, no docs on apache setup
-                \item novnc is problematic from source
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{mascots/nova.eps}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Requirements still aren't fun}
-    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-requirements-error-cut}
-\end{frame}
-
-\begin{frame}
-    \frametitle{You need a  sudoers file}
-    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-sudo-error-cut}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Don't forget to create state directories}
-    \lstinputlisting[basicstyle=\tiny,language=python]{notes/nova-statedir-error-cut}
-\end{frame}
-
-\subsubsection{Neutron}
+\subsubsection{Networking}
 \begin{frame}
     \frametitle{Networking Configuration}
     \centering
@@ -329,13 +255,12 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Setting Up Neutron}
+    \frametitle{Issues with Neutron}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
                 \item Too many configuration files
                 \item Blindly copying pasting from install guide
-                \item Rootwrap and sudo configuration are not documented
                 \item First time I had to look at packages and/or devstack
             \end{itemize}
         \end{column}
@@ -373,6 +298,7 @@
         \item Without DHCP neutron can't set routes to metadata service at \textit{169.254.169.254}
         \item Need to get IP address into the guest to start networking
         \item Using Nova's ConfigDrive works except most versions of cloud-init don't set static IP from config drives
+            (Fixed with newer cloud-init, >=0.7.9)
         \item Set \textit{force\_config\_drive} option to true
         \item Need to create custom images with Glean instead of cloud-init
     \end{itemize}
@@ -401,7 +327,6 @@
         \item Work on improving logging and error reporting
     \end{itemize}
 \end{frame}
-
 
 \section{What to do with your budget cloud?}
 \begin{frame}
@@ -443,7 +368,6 @@
     \end{itemize}
 \end{frame}
 
-
 \subsection{More Information}
 \begin{frame}
 \frametitle{Where to get more information}
@@ -453,7 +377,6 @@
         \item Ocata network guides\: \href{https://docs.openstack.org/ocata/networking-guide/}{https://docs.openstack.org/ocata/networking-guide/}
         \item Blog post about the project: \href{https://blog.kortar.org/?p=380}{https://blog.kortar.org/?p=380}
         \item These slides: \href{https://github.com/mtreinish/dirty-clouds-done-dirt-cheap/tree/fossasia-2018}{https://github.com/mtreinish/dirty-clouds-done-dirt-cheap/tree/fossasia-2018}
-
    \end{itemize}
 \end{frame}
 
